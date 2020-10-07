@@ -1,0 +1,21 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+/* ------------------------------------index.html------------------------------------- */
+.shopingcart:hover{
+    box-shadow: 0 20px 15px #9b7468;
+    /* border: 1px solid rgb(75, 209, 81); */
+    transform: translateY(-20px);
+} 
+
+.shopingcart {
+    
+    height: 80%;
+    width: 100%;
+}
+.shopingcart img{
+    height: 80%;
+    width: 100%;
+}

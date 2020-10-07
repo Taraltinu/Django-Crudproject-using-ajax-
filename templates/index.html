@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+
+
+<title>AjaxCrud</title>
+</head>
+<body>
+
+
+<div class="container-fluid">
+	<h2 class="alert alert-success text-center text-uppercase">Crud Project using ajax and django</h2>
+	<div class="row">
+		<div class="col-md-3 offset-1">
+			<h4 class="alert alert-danger">Add Data && Edit Data</h4>
+			<form method="POST" action="">
+				{% csrf_token %}
+				<input type="hidden" name="sid" id="id">
+				{{form.as_p}}
+				
+				<input type="button" class="btn btn-outline-info" id="btnsave" value="Save">
+			</form>
+			<div id="msg" class="alert alert-danger" style="display: none;"></div>
+		</div>
+		<div class="col-md-7">
+			<h4 class="alert alert-danger">Add Data && Edit Data</h4>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>id</th>
+						<th>name</th>
+						<th>phone</th>
+						<th>password</th>
+						<th>Action</th>
+
+					</tr>
+				</thead>
+				<tbody id="tbody">
+					{% for d in data %}
+					<tr>
+						<td>{{d.id}}</td>
+						<td>{{d.name}}</td>
+						<td>{{d.mobile}}</td>
+						<td>{{d.password}}</td>
+						<td>
+							<input type="button" name="" data-sid="{{d.id}}" class="btn btn-warning btn-edit" value="Edit">
+							<input type="button" name="" data-sid="{{d.id}}" class="btn btn-danger btn-del" value="Delete">
+
+						</td>
+
+
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+
+		
+	</div>
+</div>
+         
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/popper.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+
+{% include 'ajax.html' %}
+</body>
+</html>
